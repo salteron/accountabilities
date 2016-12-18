@@ -1,0 +1,44 @@
+Style/Copyright:
+  Description: 'Include a copyright notice in each file before any code.'
+  Enabled: false
+
+Style/Encoding:
+  Description: 'Use UTF-8 as the source file encoding.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#utf-8'
+  Enabled: false
+
+Style/OptionHash:
+  Description: "Don't use option hashes when you can use keyword arguments."
+  Enabled: false
+
+Style/AsciiComments:
+  Description: 'Use only ascii symbols in comments.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#english-comments'
+  Enabled: false
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
+Style/PredicateName:
+  Description: 'Check the names of predicate methods.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark'
+  Enabled: false
+
+Style/SpaceAroundKeyword:
+  Description: 'Use a space around keywords if appropriate.'
+  Enabled: false
+
+Style/Lambda:
+  Description: 'Use the new lambda literal syntax for single-line blocks.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#lambda-multi-line'
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: >-
+                 Add the frozen_string_literal comment to the top of files
+                 to help transition from Ruby 2.3.0 to Ruby 3.0.
+  Enabled: false

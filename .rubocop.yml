@@ -1,0 +1,4 @@
+inherit_from:
+  - .rubocop_enabled_cops.yml
+  - .rubocop_disabled_cops.yml
+  - .rubocop_config.yml
