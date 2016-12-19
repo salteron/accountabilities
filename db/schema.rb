@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218120832) do
+ActiveRecord::Schema.define(version: 20161217152737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accountabilities", force: :cascade do |t|
-    t.string   "type",                        null: false
+    t.integer  "role",                        null: false
     t.integer  "child_id",                    null: false
     t.string   "child_type",                  null: false
     t.integer  "parent_id",                   null: false
@@ -33,18 +33,22 @@ ActiveRecord::Schema.define(version: 20161218120832) do
   add_index "accountabilities", ["child_type"], name: "index_accountabilities_on_child_type", using: :btree
   add_index "accountabilities", ["parent_id"], name: "index_accountabilities_on_parent_id", using: :btree
   add_index "accountabilities", ["parent_type"], name: "index_accountabilities_on_parent_type", using: :btree
-  add_index "accountabilities", ["type"], name: "index_accountabilities_on_type", using: :btree
+  add_index "accountabilities", ["role"], name: "index_accountabilities_on_role", using: :btree
 
   create_table "organizations", force: :cascade do |t|
-    t.string   "type",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "role",       default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
+  add_index "organizations", ["role"], name: "index_organizations_on_role", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "is_administator", default: false, null: false
+    t.integer  "role",       default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
+
+  add_index "users", ["role"], name: "index_users_on_role", using: :btree
 
 end
